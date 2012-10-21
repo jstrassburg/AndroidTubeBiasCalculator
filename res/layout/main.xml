@@ -4,10 +4,27 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
         >
-    <TextView
-            android:layout_width="fill_parent"
+    <RadioGroup
+        android:id="@+id/radioTube"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/SixLSix"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Let's calculate the bias..."
-            />
+            android:text="@string/radioSixLSixGC"
+            android:checked="true"/>
+        <RadioButton
+            android:id="@+id/EL84"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radioEL84"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/pickTube"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/showTube"/>
 </LinearLayout>
 

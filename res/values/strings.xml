@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Tube Bias Calculator</string>
+    <string name="app_name">Bias Calculator</string>
+    <string name="radioSixLSixGC">6L6GC</string>
+    <string name="radioEL84">EL84/6BQ5</string>
+    <string name="showTube">Which tube?</string>
 </resources>
