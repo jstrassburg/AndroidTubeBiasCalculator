@@ -1,0 +1,6 @@
+<resources>
+    <string-array name="numberOfTubes">
+        <item>2</item>
+        <item>4</item>
+    </string-array>
+</resources>
