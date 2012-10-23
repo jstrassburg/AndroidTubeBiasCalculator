@@ -37,13 +37,34 @@ public class BiasCalculator extends Activity {
             public void onClick(View view) {
                 Float maxPowerDissipation = getSelectedTubePowerDissipation();
                 int numberOfTubes = getNumberOfTubes();
+                Float plateVoltage = getEditBoxFloat(R.id.plateVoltage);
+                Float screenResistor = getEditBoxFloat(R.id.screenResistor);
+                Float screenDrop = getEditBoxFloat(R.id.screenDrop);
+                Float cathodeResistor = getEditBoxFloat(R.id.cathodeResistor);
+                Float cathodeDrop = getEditBoxFloat(R.id.cathodeDrop);
+
+                //TODO: Validate data and display Toast for invalid then return
+
+                Float cathodeCurrent = cathodeDrop / cathodeResistor;
+                Float screenCurrent = screenDrop / screenResistor;
+                Float plateCurrent = cathodeCurrent - screenCurrent;
+                Float plateDrop = plateVoltage - cathodeDrop;
+                Float idlePlateDissipation = plateDrop*plateCurrent/numberOfTubes;
+                Float percentageMaxDissipation =  100.0f*idlePlateDissipation/maxPowerDissipation;
+
+                Toast.makeText(context,
+                    "Idle plate dissipation: " +
+                            Float.toString(idlePlateDissipation), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,
+                    "Percentage max dissipation: " +
+                            Float.toString(percentageMaxDissipation) + "%", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private int getNumberOfTubes() {
         Spinner numberOfTubesSelector = (Spinner)findViewById(R.id.numberOfTubesSelector);
-        return Integer.getInteger((String)numberOfTubesSelector.getSelectedItem());
+        return Integer.parseInt((String)numberOfTubesSelector.getSelectedItem());
     }
 
     private Float getSelectedTubePowerDissipation(){
