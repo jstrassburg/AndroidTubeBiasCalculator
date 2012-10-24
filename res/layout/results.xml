@@ -20,27 +20,13 @@
         android:layout_below="@+id/idlePlateDissipation"
         android:text="Percentage max plate dissipation: "
         />
-     <ProgressBar
-         android:id="@+id/hotnessProgress"
-         android:layout_width="fill_parent"
-         android:layout_height="wrap_content"
-         android:layout_below="@+id/percentageMaxPlateDissipation"
-         android:progress="100"
-         style="?android:attr/progressBarStyleHorizontal"
-         android:progressDrawable="@drawable/hotnessProgress"
-         android:layout_margin="20dp"
-         />
-    <TextView
-        android:layout_width="wrap_content"
+
+    <SeekBar
+        android:id="@+id/biasIndicator"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/hotnessProgress"
-        android:text="Cold [50%]"
+        android:layout_below="@+id/percentageMaxPlateDissipation"
+        android:progress="68"
+        android:layout_margin="10dp"
         />
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/hotnessProgress"
-            android:text="Hot [70%]"
-            android:layout_alignParentRight="true"
-            />
 </RelativeLayout>

@@ -1,16 +1,21 @@
 package com.example;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.*;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-public class BiasCalculator extends Activity {
+public class BiasCalculator extends Activity implements Button.OnClickListener {
     final Context context = this;
 
     private Map<String, Float> _tubeMap;
@@ -32,34 +37,7 @@ public class BiasCalculator extends Activity {
 
     private void ConfigureCalculateButton() {
         Button calculateButton = (Button) findViewById(R.id.calculateButton);
-        calculateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Float maxPowerDissipation = getSelectedTubePowerDissipation();
-                int numberOfTubes = getNumberOfTubes();
-                Float plateVoltage = getEditBoxFloat(R.id.plateVoltage);
-                Float screenResistor = getEditBoxFloat(R.id.screenResistor);
-                Float screenDrop = getEditBoxFloat(R.id.screenDrop);
-                Float cathodeResistor = getEditBoxFloat(R.id.cathodeResistor);
-                Float cathodeDrop = getEditBoxFloat(R.id.cathodeDrop);
-
-                //TODO: Validate data and display Toast for invalid then return
-
-                Float cathodeCurrent = cathodeDrop / cathodeResistor;
-                Float screenCurrent = screenDrop / screenResistor;
-                Float plateCurrent = cathodeCurrent - screenCurrent;
-                Float plateDrop = plateVoltage - cathodeDrop;
-                Float idlePlateDissipation = plateDrop*plateCurrent/numberOfTubes;
-                Float percentageMaxDissipation =  100.0f*idlePlateDissipation/maxPowerDissipation;
-
-                Toast.makeText(context,
-                    "Idle plate dissipation: " +
-                            Float.toString(idlePlateDissipation), Toast.LENGTH_LONG).show();
-                Toast.makeText(context,
-                    "Percentage max dissipation: " +
-                            Float.toString(percentageMaxDissipation) + "%", Toast.LENGTH_LONG).show();
-            }
-        });
+        calculateButton.setOnClickListener(this);
     }
 
     private int getNumberOfTubes() {
@@ -85,5 +63,30 @@ public class BiasCalculator extends Activity {
             context, android.R.layout.simple_spinner_dropdown_item, tubes);
         tubeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         tubeSelector.setAdapter(tubeAdapter);
+    }
+
+    @Override
+    public void onClick(View view) {
+        Float maxPowerDissipation = getSelectedTubePowerDissipation();
+        int numberOfTubes = getNumberOfTubes();
+        Float plateVoltage = getEditBoxFloat(R.id.plateVoltage);
+        Float screenResistor = getEditBoxFloat(R.id.screenResistor);
+        Float screenDrop = getEditBoxFloat(R.id.screenDrop);
+        Float cathodeResistor = getEditBoxFloat(R.id.cathodeResistor);
+        Float cathodeDrop = getEditBoxFloat(R.id.cathodeDrop);
+
+        //TODO: Validate data and display Toast for invalid then return
+
+        Float cathodeCurrent = cathodeDrop / cathodeResistor;
+        Float screenCurrent = screenDrop / screenResistor;
+        Float plateCurrent = cathodeCurrent - screenCurrent;
+        Float plateDrop = plateVoltage - cathodeDrop;
+        Float idlePlateDissipation = plateDrop*plateCurrent/numberOfTubes;
+        Float percentageMaxDissipation =  100.0f*idlePlateDissipation/maxPowerDissipation;
+
+        Intent intent = new Intent(context, Results.class);
+        intent.putExtra(ExtraDataKeys.IDLE_PLATE_DISSIPATION, idlePlateDissipation);
+        intent.putExtra(ExtraDataKeys.PERCENTAGE_MAX_PLATE_DISSIPATION, percentageMaxDissipation);
+        startActivity(intent);
     }
 }
