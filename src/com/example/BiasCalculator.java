@@ -54,10 +54,10 @@ public class BiasCalculator extends Activity {
 
                 Toast.makeText(context,
                     "Idle plate dissipation: " +
-                            Float.toString(idlePlateDissipation), Toast.LENGTH_SHORT).show();
+                            Float.toString(idlePlateDissipation), Toast.LENGTH_LONG).show();
                 Toast.makeText(context,
                     "Percentage max dissipation: " +
-                            Float.toString(percentageMaxDissipation) + "%", Toast.LENGTH_SHORT).show();
+                            Float.toString(percentageMaxDissipation) + "%", Toast.LENGTH_LONG).show();
             }
         });
     }
