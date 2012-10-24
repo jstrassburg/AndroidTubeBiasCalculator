@@ -3,9 +3,15 @@
     <string name="app_name">Bias Calculator</string>
 
     <string name="selectTube">Select a tube</string>
+    <string name="selectedTube">6L6</string>
+    <string name="selectedTubeLabel">Selected tube:</string>
+    <string name="plateVoltage">Enter plate voltage [V]:</string>
+    <string name="numberOfTubes">Number of tubes:</string>
+    <string name="screenResistor">Screen resistor [Ω]:</string>
+    <string name="screenDrop">Screen resistor voltage drop [V]:</string>
+    <string name="cathodeResistor">Cathode resistor [Ω]:</string>
+    <string name="cathodeDrop">Cathode resistor voltage drop [V]:</string>
+    <string name="calculate">Calculate</string>
 
-    <array name="tubes">
-        <item>6L6</item>
-        <item>EL84</item>
-    </array>
+
 </resources>

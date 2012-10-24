@@ -1,13 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
         >
-    <Button
-        android:id="@+id/selectTubeButton"
+    <TextView
+        android:id="@+id/selectTubeLabel"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/selectedTubeLabel"
+        android:layout_alignBaseline="@+id/tubeSelector"
+    />
+    <Spinner
+        android:id="@+id/tubeSelector"
+        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_alignParentRight="true"
+    />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/numberOfTubes"
+            android:layout_below="@+id/tubeSelector"
+            android:layout_alignBaseline="@+id/numberOfTubesSelector"
+            />
+    <Spinner
+            android:id="@+id/numberOfTubesSelector"
+            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:entries="@array/numberOfTubes"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tubeSelector"
+            />
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="@string/plateVoltage"
+         android:layout_below="@+id/numberOfTubesSelector"
+         android:layout_alignBaseline="@+id/plateVoltage"
+         />
+    <EditText
+        android:id="@+id/plateVoltage"
+        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_below="@+id/numberOfTubesSelector"
+        android:layout_alignParentRight="true"
+        android:digits="0123456789."
+        />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/selectTube"/>
-</LinearLayout>
+        android:layout_below="@+id/plateVoltage"
+        android:text="@string/screenResistor"
+        android:layout_alignBaseline="@+id/screenResistor"
+        />
+    <EditText
+        android:id="@+id/screenResistor"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/plateVoltage"
+        android:layout_alignParentRight="true"
+        android:digits="0123456789."
+        />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/screenResistor"
+        android:text="@string/screenDrop"
+        android:layout_alignBaseline="@+id/screenDrop"
+        />
+    <EditText
+        android:id="@+id/screenDrop"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/screenResistor"
+        android:layout_alignParentRight="true"
+        android:digits="0123456789."
+        />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/screenDrop"
+            android:text="@string/cathodeResistor"
+            android:layout_alignBaseline="@+id/cathodeResistor"
+            />
+    <EditText
+            android:id="@+id/cathodeResistor"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/screenDrop"
+            android:layout_alignParentRight="true"
+            android:digits="0123456789."
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cathodeResistor"
+            android:text="@string/cathodeDrop"
+            android:layout_alignBaseline="@+id/cathodeDrop"
+            />
+    <EditText
+            android:id="@+id/cathodeDrop"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cathodeResistor"
+            android:layout_alignParentRight="true"
+            android:digits="0123456789."
+            />
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/cathodeDrop"
+        android:text="@string/calculate"
+        />
+</RelativeLayout>

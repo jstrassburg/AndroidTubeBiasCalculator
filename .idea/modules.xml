@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TubeBiasCalculator.iml" filepath="$PROJECT_DIR$/TubeBiasCalculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidTubeBiasCalculator.iml" filepath="$PROJECT_DIR$/AndroidTubeBiasCalculator.iml" />
     </modules>
   </component>
 </project>
