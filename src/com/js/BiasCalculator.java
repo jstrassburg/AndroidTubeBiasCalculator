@@ -1,4 +1,4 @@
-package com.example;
+package com.js;
 
 import android.app.Activity;
 import android.content.Context;

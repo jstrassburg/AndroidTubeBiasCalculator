@@ -1,4 +1,4 @@
-package com.example;
+package com.js;
 
 public class ExtraDataKeys {
     public static String IDLE_PLATE_DISSIPATION = "IDLE_PLATE_DISSIPATION";
