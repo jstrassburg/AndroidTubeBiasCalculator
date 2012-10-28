@@ -12,6 +12,9 @@
     <string name="cathodeResistor">Cathode resistor [Ω]:</string>
     <string name="cathodeDrop">Cathode resistor voltage drop [V]:</string>
     <string name="calculate">Calculate</string>
+    <string name="pushPull">Push pull</string>
+    <string name="singleEnded">Single ended</string>
+    <string name="selectOutputStageConfiguration">Select output stage configuration:</string>
 
 
 </resources>

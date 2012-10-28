@@ -15,12 +15,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BiasCalculator extends Activity implements Button.OnClickListener {
+public class PushPullBiasCalculator extends Activity implements Button.OnClickListener {
     final Context context = this;
 
     private Map<String, Float> _tubeMap;
 
-    public BiasCalculator() {
+    public PushPullBiasCalculator() {
         _tubeMap = new HashMap<String, Float>();
         _tubeMap.put("6L6GC", 30.0f);
         _tubeMap.put("EL84", 12.0f);
