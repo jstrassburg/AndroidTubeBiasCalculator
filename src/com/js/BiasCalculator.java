@@ -53,7 +53,32 @@ public class BiasCalculator extends Activity implements Button.OnClickListener {
 
     private Float getEditBoxFloat(int id){
         EditText editText = (EditText)findViewById(id);
-        return Float.parseFloat(editText.getText().toString());
+        String value = editText.getText().toString();
+
+        return Float.parseFloat(value);
+    }
+
+    private Boolean ValidateEditTextNotEmpty(int id){
+        EditText editText = (EditText)findViewById(id);
+        String value = editText.getText().toString();
+        if (value.trim().length() == 0){
+            editText.setError("Field is required.");
+            return false;
+        }
+        editText.setError(null);
+        return true;
+    }
+
+    private Boolean ValidateEditTextFloatNotZero(int id){
+        EditText editText = (EditText)findViewById(id);
+        String value = editText.getText().toString();
+        Float floatValue = Float.parseFloat(value);
+        if (floatValue == 0){
+            editText.setError("Field must be > 0.");
+            return false;
+        }
+        editText.setError(null);
+        return true;
     }
 
     private void ConfigureTubeSelector() {
@@ -67,15 +92,23 @@ public class BiasCalculator extends Activity implements Button.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        if (!ValidateEditTextNotEmpty(R.id.plateVoltage)) return;
+        if (!ValidateEditTextNotEmpty(R.id.screenResistor)) return;
+        if (!ValidateEditTextNotEmpty(R.id.screenDrop)) return;
+        if (!ValidateEditTextNotEmpty(R.id.cathodeResistor)) return;
+        if (!ValidateEditTextNotEmpty(R.id.cathodeDrop)) return;
+
+        if (!ValidateEditTextFloatNotZero(R.id.screenResistor)) return;
+        if (!ValidateEditTextFloatNotZero(R.id.cathodeResistor)) return;
+
         Float maxPowerDissipation = getSelectedTubePowerDissipation();
         int numberOfTubes = getNumberOfTubes();
+
         Float plateVoltage = getEditBoxFloat(R.id.plateVoltage);
         Float screenResistor = getEditBoxFloat(R.id.screenResistor);
         Float screenDrop = getEditBoxFloat(R.id.screenDrop);
         Float cathodeResistor = getEditBoxFloat(R.id.cathodeResistor);
         Float cathodeDrop = getEditBoxFloat(R.id.cathodeDrop);
-
-        //TODO: Validate data and display Toast for invalid then return
 
         Float cathodeCurrent = cathodeDrop / cathodeResistor;
         Float screenCurrent = screenDrop / screenResistor;
