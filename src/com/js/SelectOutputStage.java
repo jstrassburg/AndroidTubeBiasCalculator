@@ -15,17 +15,24 @@ public class SelectOutputStage extends Activity implements RadioGroup.OnCheckedC
 
         setContentView(R.layout.output_stage);
 
+        ConfigureOutputStageSelector();
+    }
+
+    private void ConfigureOutputStageSelector() {
         RadioGroup outputStageSelection = (RadioGroup)findViewById(R.id.outputStageSelection);
         outputStageSelection.setOnCheckedChangeListener(this);
     }
 
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        if (i == R.id.pushPull) {
-            Intent intent = new Intent(context, PushPullBiasCalculator.class);
-            startActivity(intent);
-        }
+        if (i == R.id.pushPull)
+            StartPushPullActivity();
         else if (i == R.id.singleEnded)
             Toast.makeText(context, "Single Ended", Toast.LENGTH_SHORT).show();
+    }
+
+    private void StartPushPullActivity() {
+        Intent intent = new Intent(context, PushPullBiasCalculator.class);
+        startActivity(intent);
     }
 }

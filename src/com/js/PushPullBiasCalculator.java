@@ -42,7 +42,7 @@ public class PushPullBiasCalculator extends Activity implements Button.OnClickLi
 
     private int getNumberOfTubes() {
         Spinner numberOfTubesSelector = (Spinner)findViewById(R.id.numberOfTubesSelector);
-        return Integer.parseInt((String)numberOfTubesSelector.getSelectedItem());
+        return Integer.parseInt((String) numberOfTubesSelector.getSelectedItem());
     }
 
     private Float getSelectedTubePowerDissipation(){
@@ -92,18 +92,15 @@ public class PushPullBiasCalculator extends Activity implements Button.OnClickLi
 
     @Override
     public void onClick(View view) {
-        if (!ValidateEditTextNotEmpty(R.id.plateVoltage)) return;
-        if (!ValidateEditTextNotEmpty(R.id.screenResistor)) return;
-        if (!ValidateEditTextNotEmpty(R.id.screenDrop)) return;
-        if (!ValidateEditTextNotEmpty(R.id.cathodeResistor)) return;
-        if (!ValidateEditTextNotEmpty(R.id.cathodeDrop)) return;
-
-        if (!ValidateEditTextFloatNotZero(R.id.screenResistor)) return;
-        if (!ValidateEditTextFloatNotZero(R.id.cathodeResistor)) return;
+        if (!fieldsAreValid()) return;
 
         Float maxPowerDissipation = getSelectedTubePowerDissipation();
         int numberOfTubes = getNumberOfTubes();
 
+        calculateResultsAndStartResultsActivity(maxPowerDissipation, numberOfTubes);
+    }
+
+    private void calculateResultsAndStartResultsActivity(Float maxPowerDissipation, int numberOfTubes) {
         Float plateVoltage = getEditBoxFloat(R.id.plateVoltage);
         Float screenResistor = getEditBoxFloat(R.id.screenResistor);
         Float screenDrop = getEditBoxFloat(R.id.screenDrop);
@@ -117,6 +114,22 @@ public class PushPullBiasCalculator extends Activity implements Button.OnClickLi
         Float idlePlateDissipation = plateDrop*plateCurrent/numberOfTubes;
         Float percentageMaxDissipation =  100.0f*idlePlateDissipation/maxPowerDissipation;
 
+        startResultsActivity(idlePlateDissipation, percentageMaxDissipation);
+    }
+
+    private boolean fieldsAreValid() {
+        if (!ValidateEditTextNotEmpty(R.id.plateVoltage)) return false;
+        if (!ValidateEditTextNotEmpty(R.id.screenResistor)) return false;
+        if (!ValidateEditTextNotEmpty(R.id.screenDrop)) return false;
+        if (!ValidateEditTextNotEmpty(R.id.cathodeResistor)) return false;
+        if (!ValidateEditTextNotEmpty(R.id.cathodeDrop)) return false;
+
+        if (!ValidateEditTextFloatNotZero(R.id.screenResistor)) return false;
+        if (!ValidateEditTextFloatNotZero(R.id.cathodeResistor)) return false;
+        return true;
+    }
+
+    private void startResultsActivity(Float idlePlateDissipation, Float percentageMaxDissipation) {
         Intent intent = new Intent(context, Results.class);
         intent.putExtra(ExtraDataKeys.IDLE_PLATE_DISSIPATION, idlePlateDissipation);
         intent.putExtra(ExtraDataKeys.PERCENTAGE_MAX_PLATE_DISSIPATION, percentageMaxDissipation);
