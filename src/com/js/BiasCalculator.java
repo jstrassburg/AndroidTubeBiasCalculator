@@ -4,14 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public abstract class BiasCalculator extends ActivityEx implements Button.OnClickListener {
@@ -37,35 +33,20 @@ public abstract class BiasCalculator extends ActivityEx implements Button.OnClic
     }
 
     protected void ConfigureCalculateButton() {
-        Button calculateButton = findButtonById(R.id.calculateButton);
-        calculateButton.setOnClickListener(this);
+        setButtonOnClickListener(R.id.calculateButton, this);
     }
 
     protected int getNumberOfTubes() {
-        Spinner numberOfTubesSelector = findSpinnerById(R.id.numberOfTubesSelector);
-        return Integer.parseInt((String) numberOfTubesSelector.getSelectedItem());
+        return getSpinnerSelectedItemInteger(R.id.numberOfTubesSelector);
     }
 
-    protected Float getSelectedTubePowerDissipation(){
-        Spinner tubeSelector = findSpinnerById(R.id.tubeSelector);
-        String tube = (String)tubeSelector.getSelectedItem();
-        return _tubeMap.get(tube);
-    }
-
-    protected Float getEditBoxFloat(int id){
-        EditText editText = (EditText)findViewById(id);
-        String value = editText.getText().toString();
-
-        return Float.parseFloat(value);
+    protected Float getSelectedTubePowerDissipation() {
+        return _tubeMap.get(getSpinnerSelectedItem(R.id.tubeSelector));
     }
 
     protected void ConfigureTubeSelector() {
-        Spinner tubeSelector = findSpinnerById(R.id.tubeSelector);
-        List<String> tubes = new ArrayList<String>(_tubeMap.keySet());
-        ArrayAdapter<String> tubeAdapter = new ArrayAdapter<String>(
-            context, android.R.layout.simple_spinner_dropdown_item, tubes);
-        tubeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        tubeSelector.setAdapter(tubeAdapter);
+        setSpinnerDropDownItems(
+            context, R.id.tubeSelector, new ArrayList<String>(_tubeMap.keySet()));
     }
 
     @Override
@@ -73,9 +54,7 @@ public abstract class BiasCalculator extends ActivityEx implements Button.OnClic
         if (!fieldsAreValid()) return;
 
         Float maxPowerDissipation = getSelectedTubePowerDissipation();
-        int numberOfTubes = getNumberOfTubes();
-
-        calculateResultsAndStartResultsActivity(maxPowerDissipation, numberOfTubes);
+        calculateResultsAndStartResultsActivity(maxPowerDissipation, getNumberOfTubes());
     }
 
     protected abstract void calculateResultsAndStartResultsActivity(Float maxPowerDissipation, int numberOfTubes);
@@ -89,6 +68,7 @@ public abstract class BiasCalculator extends ActivityEx implements Button.OnClic
 
         if (!validateEditTextFloatNotZero(R.id.screenResistor, "Screen resistor must be > 0")) return false;
         if (!validateEditTextFloatNotZero(R.id.cathodeResistor, "Cathode resistor must be > 0")) return false;
+
         return true;
     }
 

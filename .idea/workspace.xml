@@ -13,11 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53614645-28b0-404f-bbde-3940c2511786" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/js/ActivityEx.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/js/BiasCalculator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidTubeBiasCalculator.iml" afterPath="$PROJECT_DIR$/AndroidTubeBiasCalculator.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/js/PushPullBiasCalculator.java" afterPath="$PROJECT_DIR$/src/com/js/PushPullBiasCalculator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/js/ActivityEx.java" afterPath="$PROJECT_DIR$/src/com/js/ActivityEx.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/js/BiasCalculator.java" afterPath="$PROJECT_DIR$/src/com/js/BiasCalculator.java" />
     </list>
     <ignored path="AndroidTubeBiasCalculator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -112,10 +110,8 @@
       <file leaf-file-name="BiasCalculator.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/js/BiasCalculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="23" selection-start="3455" selection-end="3455" vertical-scroll-proportion="0.5109489">
-              <folding>
-                <element signature="e#2000#2008#0" expanded="true" />
-              </folding>
+            <state line="39" column="62" selection-start="1136" selection-end="1136" vertical-scroll-proportion="-0.03649635">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -123,9 +119,10 @@
       <file leaf-file-name="ActivityEx.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/js/ActivityEx.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="40" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0">
+            <state line="11" column="61" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1324#1332#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -213,8 +210,8 @@
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/com/js/SelectOutputStage.java" />
         <option value="$PROJECT_DIR$/src/com/js/PushPullBiasCalculator.java" />
-        <option value="$PROJECT_DIR$/src/com/js/ActivityEx.java" />
         <option value="$PROJECT_DIR$/src/com/js/BiasCalculator.java" />
+        <option value="$PROJECT_DIR$/src/com/js/ActivityEx.java" />
       </list>
     </option>
   </component>
@@ -647,7 +644,11 @@
       <created>1351449871697</created>
       <updated>1351449871697</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Refactor of BiasCalculator super class so I can extend for single ended functionality. Also created an ActivityEx class extending Activity to filter out some of the code noise from all the dumb casts.">
+      <created>1351624841487</created>
+      <updated>1351624841487</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -715,7 +716,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="New launch activity for selecting the output stage configuration. Rename of bias calculator in preparation for future refactor into super class and implementation of single ended calculation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor of BiasCalculator super class so I can extend for single ended functionality. Also created an ActivityEx class extending Activity to filter out some of the code noise from all the dumb casts." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -735,6 +736,7 @@
     <MESSAGE value="Package rename. Hey, I'm new to this java shit." />
     <MESSAGE value="Data validation added for empty and zero resistor values." />
     <MESSAGE value="New launch activity for selecting the output stage configuration. Rename of bias calculator in preparation for future refactor into super class and implementation of single ended calculation." />
+    <MESSAGE value="Refactor of BiasCalculator super class so I can extend for single ended functionality. Also created an ActivityEx class extending Activity to filter out some of the code noise from all the dumb casts." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -798,13 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/js/PushPullBiasCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="64" selection-start="603" selection-end="603" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/js/ExtraDataKeys.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="29" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0" />
@@ -817,21 +812,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/js/PushPullBiasCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="64" selection-start="603" selection-end="603" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/js/ActivityEx.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="40" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0">
+        <state line="11" column="61" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1324#1332#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/js/BiasCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="23" selection-start="3455" selection-end="3455" vertical-scroll-proportion="0.5109489">
-          <folding>
-            <element signature="e#2000#2008#0" expanded="true" />
-          </folding>
+        <state line="39" column="62" selection-start="1136" selection-end="1136" vertical-scroll-proportion="-0.03649635">
+          <folding />
         </state>
       </provider>
     </entry>
