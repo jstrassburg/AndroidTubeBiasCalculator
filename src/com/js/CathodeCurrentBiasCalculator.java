@@ -1,8 +1,8 @@
 package com.js;
 
-public class PushPullBiasCalculator extends BiasCalculator {
+public class CathodeCurrentBiasCalculator extends BiasCalculator {
 
-    public PushPullBiasCalculator() {
+    public CathodeCurrentBiasCalculator() {
         super(R.layout.main);
     }
 
@@ -18,6 +18,7 @@ public class PushPullBiasCalculator extends BiasCalculator {
         Float screenCurrent = screenDrop / screenResistor;
         Float plateCurrent = cathodeCurrent - screenCurrent;
         Float plateDrop = plateVoltage - cathodeDrop;
+
         Float idlePlateDissipation = plateDrop*plateCurrent/numberOfTubes;
         Float percentageMaxDissipation =  100.0f*idlePlateDissipation/maxPowerDissipation;
 

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 public class SelectOutputStage extends Activity implements RadioGroup.OnCheckedChangeListener {
     final Context context = this;
@@ -25,14 +24,12 @@ public class SelectOutputStage extends Activity implements RadioGroup.OnCheckedC
 
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        if (i == R.id.pushPull)
-            StartPushPullActivity();
-        else if (i == R.id.singleEnded)
-            Toast.makeText(context, "Single Ended", Toast.LENGTH_SHORT).show();
+         startCathodeCurrentBiasCalculatorActivity(i);
     }
 
-    private void StartPushPullActivity() {
-        Intent intent = new Intent(context, PushPullBiasCalculator.class);
+    private void startCathodeCurrentBiasCalculatorActivity(int id) {
+        Intent intent = new Intent(context, CathodeCurrentBiasCalculator.class);
+        intent.putExtra(ExtraDataKeys.OUTPUT_STAGE_CONFIGURATION, id);
         startActivity(intent);
     }
 }

@@ -28,7 +28,6 @@
             android:id="@+id/numberOfTubesSelector"
             android:layout_height="wrap_content"
             android:layout_width="100dp"
-            android:entries="@array/numberOfTubes"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/tubeSelector"
             />

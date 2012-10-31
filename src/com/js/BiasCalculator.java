@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public abstract class BiasCalculator extends ActivityEx implements Button.OnClickListener {
@@ -28,11 +29,12 @@ public abstract class BiasCalculator extends ActivityEx implements Button.OnClic
         super.onCreate(savedInstanceState);
         setContentView(_layoutResourceId);
 
-        ConfigureTubeSelector();
-        ConfigureCalculateButton();
+        configureTubeSelector();
+        configureNumberOfTubesSelector();
+        configureCalculateButton();
     }
 
-    protected void ConfigureCalculateButton() {
+    protected void configureCalculateButton() {
         setButtonOnClickListener(R.id.calculateButton, this);
     }
 
@@ -44,9 +46,28 @@ public abstract class BiasCalculator extends ActivityEx implements Button.OnClic
         return _tubeMap.get(getSpinnerSelectedItem(R.id.tubeSelector));
     }
 
-    protected void ConfigureTubeSelector() {
+    protected void configureTubeSelector() {
         setSpinnerDropDownItems(
             context, R.id.tubeSelector, new ArrayList<String>(_tubeMap.keySet()));
+    }
+
+    protected void configureNumberOfTubesSelector() {
+        List<String> numberOfTubes = new ArrayList<String>();
+        Integer outputStageConfigurationId =
+                getIntent().getIntExtra(ExtraDataKeys.OUTPUT_STAGE_CONFIGURATION, R.id.singleEnded);
+
+        if (outputStageConfigurationId == R.id.singleEnded) {
+            numberOfTubes.add("1");
+            numberOfTubes.add("2");
+        }
+        else if (outputStageConfigurationId == R.id.pushPull) {
+            numberOfTubes.add("2");
+            numberOfTubes.add("4");
+            numberOfTubes.add("6");
+        }
+
+        setSpinnerDropDownItems(
+            context, R.id.numberOfTubesSelector, numberOfTubes);
     }
 
     @Override
