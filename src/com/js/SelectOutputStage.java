@@ -1,7 +1,9 @@
 package com.js;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.RadioGroup;
@@ -14,12 +16,28 @@ public class SelectOutputStage extends Activity implements RadioGroup.OnCheckedC
 
         setContentView(R.layout.output_stage);
 
-        ConfigureOutputStageSelector();
+        configureOutputStageSelector();
+        showDisclaimer();
     }
 
-    private void ConfigureOutputStageSelector() {
+    private void configureOutputStageSelector() {
         RadioGroup outputStageSelection = (RadioGroup)findViewById(R.id.outputStageSelection);
         outputStageSelection.setOnCheckedChangeListener(this);
+    }
+
+    private void showDisclaimer() {
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(context);
+        alertBuilder.setTitle("Disclaimer/SAFETY WARNING!")
+                    .setCancelable(false)
+                    .setMessage("Tube amplifiers contain dangerous high voltages that can KILL YOU! If you don't " +
+                                "have experience with the proper safety precautions close this application and " +
+                                "consult a professional technician. By clicking OK you agree not to hold the " +
+                                "creator of this application liable for any injury.")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,int id) {
+                            dialog.cancel();
+                        }
+                    }).show();
     }
 
     @Override
