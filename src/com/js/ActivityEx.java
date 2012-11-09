@@ -1,12 +1,11 @@
 package com.js;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.*;
 
 import java.util.List;
 
@@ -17,8 +16,19 @@ public class ActivityEx extends Activity {
     EditText findEditTextById(int id) {
         return (EditText)findViewById(id);
     }
+    TextView findTextViewById(int id) {
+        return (TextView)findViewById(id);
+    }
     Button findButtonById(int id) {
         return (Button)findViewById(id);
+    }
+    SeekBar findSeekBarById(int id) {
+        return (SeekBar)findViewById(id);
+    }
+
+    void setTextViewText(int id, CharSequence text){
+        TextView textView = findTextViewById(id);
+        textView.setText(text);
     }
 
     protected String getEditBoxText(int id) {
@@ -73,5 +83,15 @@ public class ActivityEx extends Activity {
         return true;
     }
 
-
+    protected void showSimpleAlertDialog(Context context, CharSequence title, CharSequence message) {
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(context);
+        alertBuilder.setTitle(title)
+                .setCancelable(false)
+                .setMessage(message)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        dialog.cancel();
+                    }
+                }).show();
+    }
 }

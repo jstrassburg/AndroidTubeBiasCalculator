@@ -14,6 +14,7 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
+        public static final int biasDescription=0x7f050010;
         public static final int biasIndicator=0x7f05000f;
         public static final int calculateButton=0x7f050008;
         public static final int cathodeDrop=0x7f050007;

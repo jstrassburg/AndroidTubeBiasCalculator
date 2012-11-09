@@ -53,8 +53,7 @@ public abstract class BiasCalculator extends ActivityEx implements Button.OnClic
 
     protected void configureNumberOfTubesSelector() {
         List<String> numberOfTubes = new ArrayList<String>();
-        Integer outputStageConfigurationId =
-                getIntent().getIntExtra(ExtraDataKeys.OUTPUT_STAGE_CONFIGURATION, R.id.singleEnded);
+        Integer outputStageConfigurationId = getOutputStageConfigurationId();
 
         if (outputStageConfigurationId == R.id.singleEnded) {
             numberOfTubes.add("1");
@@ -68,6 +67,10 @@ public abstract class BiasCalculator extends ActivityEx implements Button.OnClic
 
         setSpinnerDropDownItems(
             context, R.id.numberOfTubesSelector, numberOfTubes);
+    }
+
+    private Integer getOutputStageConfigurationId() {
+        return getIntent().getIntExtra(ExtraDataKeys.OUTPUT_STAGE_CONFIGURATION, R.id.singleEnded);
     }
 
     @Override
@@ -97,6 +100,13 @@ public abstract class BiasCalculator extends ActivityEx implements Button.OnClic
         Intent intent = new Intent(context, Results.class);
         intent.putExtra(ExtraDataKeys.IDLE_PLATE_DISSIPATION, idlePlateDissipation);
         intent.putExtra(ExtraDataKeys.PERCENTAGE_MAX_PLATE_DISSIPATION, percentageMaxDissipation);
+
+        Integer outputStageConfigurationId = getOutputStageConfigurationId();
+        Integer lowRangePercentage = outputStageConfigurationId == R.id.pushPull ? 50 : 70;
+        Integer highRangePercentage = outputStageConfigurationId == R.id.pushPull ? 70 : 90;
+
+        intent.putExtra(ExtraDataKeys.RESULTS_LOW_RANGE_PERCENTAGE, lowRangePercentage);
+        intent.putExtra(ExtraDataKeys.RESULTS_HIGH_RANGE_PERCENTAGE, highRangePercentage);
         startActivity(intent);
     }
 }

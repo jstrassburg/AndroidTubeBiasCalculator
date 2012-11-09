@@ -1,14 +1,11 @@
 package com.js;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.RadioGroup;
 
-public class SelectOutputStage extends Activity implements RadioGroup.OnCheckedChangeListener {
+public class SelectOutputStage extends ActivityEx implements RadioGroup.OnCheckedChangeListener {
     final Context context = this;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -26,18 +23,13 @@ public class SelectOutputStage extends Activity implements RadioGroup.OnCheckedC
     }
 
     private void showDisclaimer() {
-        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(context);
-        alertBuilder.setTitle("Disclaimer/SAFETY WARNING!")
-                    .setCancelable(false)
-                    .setMessage("Tube amplifiers contain dangerous high voltages that can KILL YOU! If you don't " +
-                                "have experience with the proper safety precautions close this application and " +
-                                "consult a professional technician. By clicking OK you agree not to hold the " +
-                                "creator of this application liable for any injury.")
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog,int id) {
-                            dialog.cancel();
-                        }
-                    }).show();
+        CharSequence title = "Disclaimer/SAFETY WARNING!";
+        CharSequence message = "Tube amplifiers contain dangerous high voltages that can KILL YOU! If you don't " +
+                "have experience with the proper safety precautions close this application and " +
+                "consult a professional technician. By clicking OK you agree not to hold the " +
+                "creator of this application liable for any injury.";
+
+        showSimpleAlertDialog(context, title, message);
     }
 
     @Override
