@@ -1,4 +1,4 @@
-package com.js;
+package com.jamesstrassburg;
 
 public class CathodeCurrentBiasCalculator extends BiasCalculator {
 

@@ -1,4 +1,4 @@
-package com.js;
+package com.jamesstrassburg;
 
 import android.app.Activity;
 import android.app.AlertDialog;

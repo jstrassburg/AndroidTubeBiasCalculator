@@ -1,4 +1,4 @@
-package com.js;
+package com.jamesstrassburg;
 
 import android.content.Intent;
 import android.graphics.Color;

@@ -1,4 +1,4 @@
-package com.js;
+package com.jamesstrassburg;
 
 import android.content.Context;
 import android.content.Intent;
