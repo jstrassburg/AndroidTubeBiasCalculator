@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Bias Calculator</string>
+    <string name="app_name">Bias Calculator (beta)</string>
 
     <string name="selectTube">Select a tube</string>
     <string name="selectedTube">6L6</string>
