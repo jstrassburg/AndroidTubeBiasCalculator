@@ -1,4 +1,4 @@
-package com.jamesstrassburg;
+package com.tubebiascalculator;
 
 public class ExtraDataKeys {
     public static final String IDLE_PLATE_DISSIPATION = "IDLE_PLATE_DISSIPATION";

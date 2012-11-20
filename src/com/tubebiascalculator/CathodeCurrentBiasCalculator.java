@@ -1,4 +1,4 @@
-package com.jamesstrassburg;
+package com.tubebiascalculator;
 
 public class CathodeCurrentBiasCalculator extends BiasCalculator {
 

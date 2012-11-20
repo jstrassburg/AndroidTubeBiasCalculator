@@ -1,4 +1,4 @@
-package com.jamesstrassburg;
+package com.tubebiascalculator;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -47,12 +47,13 @@ public class ActivityEx extends Activity {
         return Integer.parseInt(getSpinnerSelectedItem(id));
     }
 
-    protected void setSpinnerDropDownItems(Context context, int spinnerId, List<String> dropDownItems) {
+    protected void setSpinnerDropDownItems(Context context, int spinnerId, List<String> dropDownItems, int selection) {
         Spinner spinner = findSpinnerById(spinnerId);
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(
                 context, android.R.layout.simple_spinner_dropdown_item, dropDownItems);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
+        spinner.setSelection(selection);
     }
 
     protected void setButtonOnClickListener(int buttonId, View.OnClickListener onClickListener) {

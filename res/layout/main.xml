@@ -17,33 +17,18 @@
         android:layout_alignParentRight="true"
     />
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/numberOfTubes"
-            android:layout_below="@+id/tubeSelector"
-            android:layout_alignBaseline="@+id/numberOfTubesSelector"
-            />
-    <Spinner
-            android:id="@+id/numberOfTubesSelector"
-            android:layout_height="wrap_content"
-            android:layout_width="100dp"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/tubeSelector"
-            />
-
      <TextView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:text="@string/plateVoltage"
-         android:layout_below="@+id/numberOfTubesSelector"
+         android:layout_below="@+id/tubeSelector"
          android:layout_alignBaseline="@+id/plateVoltage"
          />
     <EditText
         android:id="@+id/plateVoltage"
         android:layout_height="wrap_content"
         android:layout_width="100dp"
-        android:layout_below="@+id/numberOfTubesSelector"
+        android:layout_below="@+id/tubeSelector"
         android:layout_alignParentRight="true"
         android:digits="0123456789."
         android:inputType="numberDecimal"
@@ -117,12 +102,28 @@
             android:inputType="numberDecimal"
             />
 
+    <TextView
+            android:id="@+id/numberOfTubesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/numberOfTubes"
+            android:layout_below="@+id/cathodeDrop"
+            android:layout_alignBaseline="@+id/numberOfTubesSelector"
+            />
+    <Spinner
+            android:id="@+id/numberOfTubesSelector"
+            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/cathodeDrop"
+            />
+
     <Button
         android:id="@+id/calculateButton"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/cathodeDrop"
+        android:layout_below="@+id/numberOfTubesSelector"
         android:text="@string/calculate"
         />
 </RelativeLayout>

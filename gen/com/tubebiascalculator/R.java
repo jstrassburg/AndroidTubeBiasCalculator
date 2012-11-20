@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.jamesstrassburg;
+package com.tubebiascalculator;
 
 public final class R {
     public static final class attr {
@@ -14,22 +14,23 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int biasDescription=0x7f050010;
-        public static final int biasIndicator=0x7f05000f;
-        public static final int calculateButton=0x7f050008;
-        public static final int cathodeDrop=0x7f050007;
-        public static final int cathodeResistor=0x7f050006;
-        public static final int idlePlateDissipation=0x7f05000d;
-        public static final int numberOfTubesSelector=0x7f050002;
-        public static final int outputStageSelection=0x7f05000a;
-        public static final int percentageMaxPlateDissipation=0x7f05000e;
-        public static final int plateVoltage=0x7f050003;
-        public static final int pushPull=0x7f05000b;
-        public static final int screenDrop=0x7f050005;
-        public static final int screenResistor=0x7f050004;
-        public static final int selectOutputStageConfiguration=0x7f050009;
+        public static final int biasDescription=0x7f050011;
+        public static final int biasIndicator=0x7f050010;
+        public static final int calculateButton=0x7f050009;
+        public static final int cathodeDrop=0x7f050006;
+        public static final int cathodeResistor=0x7f050005;
+        public static final int idlePlateDissipation=0x7f05000e;
+        public static final int numberOfTubesLabel=0x7f050007;
+        public static final int numberOfTubesSelector=0x7f050008;
+        public static final int outputStageSelection=0x7f05000b;
+        public static final int percentageMaxPlateDissipation=0x7f05000f;
+        public static final int plateVoltage=0x7f050002;
+        public static final int pushPull=0x7f05000c;
+        public static final int screenDrop=0x7f050004;
+        public static final int screenResistor=0x7f050003;
+        public static final int selectOutputStageConfiguration=0x7f05000a;
         public static final int selectTubeLabel=0x7f050000;
-        public static final int singleEnded=0x7f05000c;
+        public static final int singleEnded=0x7f05000d;
         public static final int tubeSelector=0x7f050001;
     }
     public static final class layout {

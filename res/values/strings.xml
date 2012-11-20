@@ -6,7 +6,7 @@
     <string name="selectedTube">6L6</string>
     <string name="selectedTubeLabel">Selected tube:</string>
     <string name="plateVoltage">Enter plate voltage [V]:</string>
-    <string name="numberOfTubes">Number of tubes:</string>
+    <string name="numberOfTubes">Number of tubes:\n(sharing same cathode resistor)</string>
     <string name="screenResistor">Screen resistor [Ω]:</string>
     <string name="screenDrop">Screen resistor voltage drop [V]:</string>
     <string name="cathodeResistor">Cathode resistor [Ω]:</string>

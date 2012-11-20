@@ -1,4 +1,4 @@
-package com.jamesstrassburg;
+package com.tubebiascalculator;
 
 import android.content.Context;
 import android.content.Intent;
@@ -48,7 +48,7 @@ public abstract class BiasCalculator extends ActivityEx implements Button.OnClic
 
     protected void configureTubeSelector() {
         setSpinnerDropDownItems(
-            context, R.id.tubeSelector, new ArrayList<String>(_tubeMap.keySet()));
+            context, R.id.tubeSelector, new ArrayList<String>(_tubeMap.keySet()), 0);
     }
 
     protected void configureNumberOfTubesSelector() {
@@ -60,13 +60,15 @@ public abstract class BiasCalculator extends ActivityEx implements Button.OnClic
             numberOfTubes.add("2");
         }
         else if (outputStageConfigurationId == R.id.pushPull) {
+            numberOfTubes.add("1");
             numberOfTubes.add("2");
             numberOfTubes.add("4");
             numberOfTubes.add("6");
         }
 
+        int selection = outputStageConfigurationId == R.id.pushPull ? 1 : 0;
         setSpinnerDropDownItems(
-            context, R.id.numberOfTubesSelector, numberOfTubes);
+            context, R.id.numberOfTubesSelector, numberOfTubes, selection);
     }
 
     private Integer getOutputStageConfigurationId() {

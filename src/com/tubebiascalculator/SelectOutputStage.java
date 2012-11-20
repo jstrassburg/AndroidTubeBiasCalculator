@@ -1,4 +1,4 @@
-package com.jamesstrassburg;
+package com.tubebiascalculator;
 
 import android.content.Context;
 import android.content.Intent;

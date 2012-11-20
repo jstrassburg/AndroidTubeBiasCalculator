@@ -1,4 +1,4 @@
-package com.jamesstrassburg;
+package com.tubebiascalculator;
 
 import android.content.Intent;
 import android.graphics.Color;
