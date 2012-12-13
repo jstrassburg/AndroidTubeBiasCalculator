@@ -18,3 +18,17 @@ local.properties
 # Eclipse project files
 .classpath
 .project
+
+# IntelliJ Idea related ignores
+out/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Mac specific
+*.DS_Store
+
+# ProGuard
+proguard-project.txt
+proguard_logs/
