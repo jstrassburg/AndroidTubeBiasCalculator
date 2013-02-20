@@ -19,7 +19,9 @@ public abstract class BiasCalculator extends ActivityEx implements Button.OnClic
     public BiasCalculator(int layoutResourceId) {
         _tubeMap = new HashMap<String, Float>();
         _tubeMap.put("6L6GC", 30.0f);
+        _tubeMap.put("6V6", 14.0f);
         _tubeMap.put("EL84", 12.0f);
+        _tubeMap.put("EL34", 25.0f);
 
         _layoutResourceId = layoutResourceId;
     }
