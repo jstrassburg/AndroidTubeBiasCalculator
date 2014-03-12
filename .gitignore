@@ -20,11 +20,13 @@ local.properties
 .project
 
 # IntelliJ Idea related ignores
+.idea/workspace.xml
+.idea/tasks.xml
 out/
-.idea/
-*.iml
-*.ipr
-*.iws
+
+# Maven
+log/
+target/
 
 # Mac specific
 *.DS_Store
